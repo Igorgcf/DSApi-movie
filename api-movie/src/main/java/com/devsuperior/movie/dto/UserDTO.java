@@ -3,6 +3,7 @@ package com.devsuperior.movie.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import com.devsuperior.movie.entities.Role;
@@ -62,5 +63,19 @@ public class UserDTO extends RepresentationModel<UserDTO> implements Serializabl
 
 		this(entity);
 		roles.forEach(x -> this.roles.add(new RoleDTO(x)));
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+		UserDTO userDTO = (UserDTO) o;
+		return Objects.equals(id, userDTO.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), id);
 	}
 }

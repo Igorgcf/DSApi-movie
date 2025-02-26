@@ -9,6 +9,7 @@ import jakarta.validation.constraints.NotNull;
 import lombok.Data;
 import org.springframework.hateoas.RepresentationModel;
 
+import java.util.Objects;
 import java.util.UUID;
 
 @Data
@@ -44,5 +45,19 @@ public class ReviewDTO extends RepresentationModel<ReviewDTO> {
 		this.text = entity.getText();
 		this.user = new UserDTO(user);
 		this.movie = new MovieDTO(movie);
+	}
+
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+		ReviewDTO reviewDTO = (ReviewDTO) o;
+		return Objects.equals(id, reviewDTO.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), id);
 	}
 }

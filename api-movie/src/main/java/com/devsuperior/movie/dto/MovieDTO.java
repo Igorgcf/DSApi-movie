@@ -3,6 +3,7 @@ package com.devsuperior.movie.dto;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 import java.util.UUID;
 
 import com.devsuperior.movie.entities.Genre;
@@ -91,6 +92,19 @@ public class MovieDTO extends RepresentationModel<MovieDTO> implements Serializa
 		this.genre = new GenreDTO(genre);
 
 		reviews.forEach(x -> this.reviews.add(new ReviewDTO(x, x.getUser(), x.getMovie())));
+	}
 
+	@Override
+	public boolean equals(Object o) {
+		if (this == o) return true;
+		if (o == null || getClass() != o.getClass()) return false;
+		if (!super.equals(o)) return false;
+		MovieDTO movieDTO = (MovieDTO) o;
+		return Objects.equals(id, movieDTO.id);
+	}
+
+	@Override
+	public int hashCode() {
+		return Objects.hash(super.hashCode(), id);
 	}
 }

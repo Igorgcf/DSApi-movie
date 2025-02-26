@@ -48,9 +48,9 @@ git clone https://github.com/IgorTecnologia/api-movie.git
 
 Download these files and import them into your Postman to use the ready-made HTTP methods along with the already configured environment variables, to perform the requests/responses
 
-[Download Collections](https://github.com/IgorTecnologia/api-movie/blob/docs-postman/api-movie-collection.json)
+[Download Collections](https://github.com/Igorgcf/DSApi-movie/blob/docs-postman/api-movie-collection.json)
 
-[Download Environment variables](https://github.com/IgorTecnologia/api-movie/blob/docs-postman/Local-host-environment.json)
+[Download Environment variables](https://github.com/Igorgcf/DSApi-movie/blob/docs-postman/Local-host-environment.json)
 
 ## API Endpoints
 The API provides the following endpoints:
